@@ -1,0 +1,163 @@
+<div class="pic" style="position: relative; padding-top: 60px;">
+  <!-- Image element with a responsive style -->
+  <img src="../../../assets/image/parallax_02.jpg" alt="backgroundCoach"
+    style="position:absolute; width: 100%; height: 100%;">
+
+  <!-- Semi-transparent black layer -->
+  <div style="position: absolute; top: 5; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5);">
+  </div>
+
+  <div class="container-fluid">
+    <div class="row form-floating">
+      <div class="col-md-12">
+        <!-- Start Training Information Form -->
+        <form [formGroup]="trainingForm" class="m-5 pb-3 border  rounded shadow" (ngSubmit)="onSubmit()">
+          <!-- Form Header -->
+          <div class="header">
+            <h1 class="text-center pt-4">As a {{ title_trainee }} </h1>
+            <h3 class="text-white ps-2">Training Information </h3>
+            <h6 class="text-white ps-2">Step: 2</h6>
+          </div>
+
+
+          <div class="row form-floating mt-3 px-3">
+            <!-- Tennis Experience Dropdown -->
+            <div class="col-md-6 form-floating pt-3">
+              <select formControlName="experience" id="inputExperience" class="form-control"
+                [ngClass]="{'is-invalid': submitted && trainingForm.controls['experience'].errors}">
+                <option>Beginner</option>
+                <option>Intermediate</option>
+                <option>Advanced</option>
+              </select>
+              <div *ngIf="submitted && trainingForm.controls['experience'].errors" class="text-danger">
+                Tennis experience is required
+              </div>
+              <label for="inputExperience" class="form-label ms-3">Tennis Experience</label>
+            </div>
+            <!-- End Tennis Experience Dropdown -->
+
+            <!-- Coach Selection Dropdown -->
+            <div class="col-md-6 form-floating pt-3">
+              <select formControlName="coach" id="inputCoach" class="form-control"
+                [ngClass]="{'is-invalid': submitted && trainingForm.controls['coach'].errors}">
+                <option [value]="item.id.value" *ngFor="let item of trainers">{{item.username}}</option>
+              </select>
+              <div *ngIf="submitted && trainingForm.controls['coach'].errors" class="text-danger">
+                Choose the coach is required
+              </div>
+              <label for="inputCoach" class="form-label ms-3">Choose Your Coach</label>
+            </div>
+            <!-- End Coach Selection Dropdown -->
+          </div>
+
+          <div class="row mt-3 px-3">
+            <!-- Start Date Input -->
+            <div class="col-md-6 form-floating pt-3">
+              <input type="date" class="form-control" id="date" formControlName="startDate"
+                [ngClass]="{'is-invalid': submitted && trainingForm.controls['startDate'].errors}">
+              <div *ngIf="submitted && trainingForm.controls['startDate'].errors" class="text-danger">
+                Start date is required
+              </div>
+              <label for="date" class="form-label ms-3">When do you want to start training</label>
+            </div>
+            <!-- End Start Date Input -->
+
+            <!-- Training Time Selection Dropdown -->
+            <div class="col-md-6 form-floating pt-3">
+              <select formControlName="time" id="inputTime" class="form-control"
+                [ngClass]="{'is-invalid': submitted && trainingForm.controls['time'].errors}">
+                <option>08:00 AM</option>
+                <option>10:00 AM</option>
+                <option>05:00 PM</option>
+                <option>07:00 PM</option>
+                <option>09:00 PM</option>
+              </select>
+              <div *ngIf="submitted && trainingForm.controls['time'].errors" class="text-danger">
+                Time is required
+              </div>
+              <label for="inputTime" class="form-label ms-3">Choose the time</label>
+            </div>
+            <!-- End Training Time Selection Dropdown -->
+          </div>
+
+
+
+          <div class="row mt-3 px-3">
+            <!-- Training Period Selection Dropdown -->
+            <div class="col-md-6 form-floating pt-3">
+              <select formControlName="period" id="inputPeriod" class="form-control"
+                [ngClass]="{'is-invalid': submitted && trainingForm.controls['period'].errors}">
+                <option>1 month</option>
+                <option>3 months</option>
+                <option>6 months</option>
+                <option>12 months</option>
+              </select>
+              <div *ngIf="submitted && trainingForm.controls['period'].errors" class="text-danger">
+                Choose period is required
+              </div>
+              <label for="inputPeriod" class="form-label ms-3">Choose the Period</label>
+            </div>
+            <!-- End Training Period Selection Dropdown -->
+
+            <!-- Favorite Tennis Court Selection Dropdown -->
+            <div class="col-md-6 form-floating pt-3">
+              <select formControlName="court" id="inputCourts" class="form-control"
+                [ngClass]="{'is-invalid': submitted && trainingForm.controls['court'].errors}">
+                <option>Grass Tennis Court</option>
+                <option>Clay Tennis Court</option>
+                <option>Hard Tennis Court</option>
+              </select>
+              <div *ngIf="submitted && trainingForm.controls['court'].errors" class="text-danger">
+                Choose favorite tennis court is required
+              </div>
+              <label for="inputCourt" class="form-label ms-3">Choose your Tennis Court</label>
+            </div>
+            <!-- End Favorite Tennis Court Selection Dropdown -->
+          </div>
+
+
+          <div class="row mt-3 px-3">
+            <!-- Medical Information Selection Dropdown -->
+            <div class="col-md-6 form-floating pt-3">
+              <select formControlName="medical" id="inputMedical" class="form-control"
+                (change)="onMedicalConditionChange()"
+                [ngClass]="{'is-invalid': submitted && trainingForm.controls['medical'].errors}">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
+              <div *ngIf="submitted && trainingForm.controls['medical'].errors" class="text-danger">
+                Medical information is required
+              </div>
+              <label for="inputMedical" class="form-label ms-3">Are there any chronic health conditions such as
+                <strong>asthma,
+                  diabetes, or heart</strong> conditions? </label>
+            </div>
+            <!-- End Medical Information Selection Dropdown -->
+
+            <!-- Medical Details Selection Dropdown (Conditional) -->
+            <div *ngIf="medicalCondition === 'yes'" class="col-md-6 form-floating pt-3">
+              <select formControlName="medicalDetails" id="medicalDetails" class="form-control"
+                [ngClass]="{'is-invalid': submitted && trainingForm.controls['medicalDetails'].errors}">
+                <option>Asthma</option>
+                <option>Diabetes</option>
+                <option>Heart</option>
+                <option>Other</option>
+              </select>
+              <div *ngIf="submitted && trainingForm.controls['medicalDetails'].errors" class="text-danger">
+                Medical details are required
+              </div>
+              <label for="medicalDetails" class="form-label ms-3">Details</label>
+            </div>
+            <!-- End Medical Details Selection Dropdown (Conditional) -->
+          </div>
+
+          <!-- Submit Button -->
+          <div class="col-12 pt-3 px-3">
+            <button type="submit" class="btn form-floating w-100">Sign Up</button>
+          </div>
+          <!-- End Submit Button -->
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

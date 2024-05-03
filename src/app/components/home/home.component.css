@@ -1,0 +1,359 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap'); */
+
+html,
+body {
+
+  margin: 0;
+
+  height: 100%;
+  overflow: hidden;
+  color: white;
+  font-size: 9px;
+}
+
+
+.content {
+  width: 70%;
+  margin: auto;
+  padding: 100px 0 100px 0;
+  color: rgb(5, 10, 10);
+}
+
+.mid {
+  height: 300px;
+  width: 100%;
+  background-position: center;
+  background: url('../../../assets/image/SLIDE_01.jpg') center fixed;
+  background-size: cover;
+
+}
+
+
+h5 {
+  color: #BADD41;
+}
+
+
+footer {
+  height: 300px;
+  width: 100%;
+  background: url('../../../assets/image/parallax_01.jpg') center center fixed;
+  background-size: cover;
+}
+
+
+
+.btn-custom {
+  border-radius: 40px;
+  background-color: #628730;
+  color: white;
+  text-align: center;
+}
+
+.btn-custom:hover {
+  background-color: #0D1315;
+}
+
+#magic {
+
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  display: block;
+  top: 0;
+  left: 0;
+  z-index: -9999;
+}
+
+.playground {
+
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  display: block;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+
+}
+
+.bottomPosition {
+
+  text-align: center;
+  margin-bottom: 50px;
+
+}
+
+.minText {
+
+  font-size: 14px;
+}
+
+a {
+  color: white;
+  font-size: 12px;
+  text-decoration: none;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+}
+
+blockquote {
+  font-size: 1.1em;
+  line-height: 1.6em;
+  padding: 50px 50px 50px 80px;
+  border-left: none;
+  position: relative;
+  text-indent: -19px
+}
+
+section#block_content {
+  min-height: 200px;
+  padding-top: 50px;
+  text-align: left;
+
+}
+
+blockquote p {
+  font-size: 2em
+}
+
+blockquote:before,
+blockquote:after {
+  font-family: Arial, serif;
+  font-size: 2.5em;
+  vertical-align: middle;
+  line-height: 0
+}
+
+blockquote:before {
+  content: open-quote;
+  margin-right: 4px
+}
+
+blockquote:after {
+  content: close-quote;
+  margin-left: 2px
+}
+
+blockquote.blockstyle,
+blockquote.style2 {
+  background: #fff;
+  font-style: italic
+}
+
+blockquote.blockstyle p,
+blockquote.style2 p {
+  display: inline
+}
+
+blockquote.blockstyle {
+  border-left: 2px solid #f0715f;
+  position: relative;
+}
+
+blockquote.blockstyle>span.triangle:before {
+  text-indent: 0;
+  content: "\f0da";
+  font-family: FontAwesome;
+  color: #f0715f;
+  position: absolute;
+  left: -1px;
+  top: 50%;
+  margin-top: -11px;
+  font-style: normal
+}
+
+blockquote.blockstyle:before,
+blockquote.blockstyle:after {
+  color: #f0715f;
+}
+
+blockquote.blockstyle.border-color-blue {
+  border-color: #01b7f2
+}
+
+blockquote.blockstyle.border-color-blue>span.triangle:before {
+  color: #01b7f2
+}
+
+blockquote.blockstyle.border-color-yellow {
+  border-color: #fdb714
+}
+
+blockquote.blockstyle.border-color-yellow>span.triangle:before {
+  color: #fdb714
+}
+
+@keyframes zoomInOut {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.09);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+header {
+  animation: zoomInOut 5s infinite;
+}
+
+
+
+/* tennis cup */
+
+.partition {
+  /* border: 1px solid #ccc; */
+  font-family: var(--font-headers), serif;
+  font-weight: 600;
+  letter-spacing: var(--font-headers-letterspacing);
+  font-style: italic;
+  -ms-word-wrap: break-word;
+  word-wrap: break-word;
+}
+
+.partition-text {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.data {
+  background-color: #BADD41;
+  border-radius: 40px;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+}
+
+.vs {
+  text-align: center;
+  font-size: 25px;
+  color: #fff;
+}
+
+.time {
+  text-align: center;
+  color: #BADD41;
+}
+
+.partition-title {
+
+  margin-bottom: 40px;
+  font-size: 50px;
+  color: #fff;
+
+}
+
+
+.partition-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  color: #fff;
+
+}
+
+.partition-list li {
+  margin-bottom: 10px;
+}
+
+.partition-image {
+  width: 100%;
+  height: 100%;
+}
+
+.partition-text {
+  font-size: 16px;
+  color: #333;
+}
+
+
+/* Style for the membership container */
+.membership-container {
+  padding: 20px;
+  background-color: #f8f9fa;
+  /* Light gray background */
+  border-radius: 10px;
+  margin-top: 30px;
+}
+
+/* Style for each membership level column */
+.membership-column {
+  border-radius: 5px;
+  padding: 20px;
+  background-color: #fff;
+  /* White background */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  /* Shadow effect */
+  transition: box-shadow 0.3s ease;
+  /* Smooth shadow transition */
+}
+
+.membership-column:hover {
+  box-shadow: 0px 0px 20px #BADD41;
+  /* Shadow effect on hover */
+}
+
+/* Style for the membership level heading */
+.membership-level {
+  font-size: 24px;
+  color: #BADD41;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.membership-praice {
+  font-size: 45px;
+  text-align: center;
+}
+
+/* Style for the membership level description */
+.membership-description {
+  margin-bottom: 20px;
+  text-align: center;
+  color: #666;
+  /* Gray text color */
+}
+
+/* Style for the membership column */
+.membership-column {
+  border-radius: 5px;
+  padding: 20px;
+  background-color: #fff; /* White background */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+  transition: box-shadow 0.3s ease; /* Smooth shadow transition */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Center the content vertically */
+}
+
+/* Style for the "Join Now" button */
+.join-button {
+  background-color: #BADD41;
+  color: #fff;
+  border: none;
+  border-radius: 40px;
+  padding: 10px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  /* Smooth background color transition */
+  align-self: center;
+}
+
+.join-button:hover {
+  background-color: #0D1315;
+  /* Darker blue on hover */
+}

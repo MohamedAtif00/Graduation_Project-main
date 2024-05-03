@@ -1,0 +1,38 @@
+.menu {
+  position: fixed;
+  top: 0;
+  width: 100%;
+
+  color: #fff;
+  /* Add your desired text color */
+  z-index: 1000;
+  /* Ensure it's above other content */
+}
+
+
+#searchInput {
+  width: 200px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+.tennis:hover {
+  color: #628730;
+
+}
+
+.nav-link {
+  color: #fff;
+}
+
+.signup{
+  background-color: #628730;
+}
+.btn {
+  border-radius: 40px;
+}
+
+.btn:hover {
+  background-color: #0D1315;
+}

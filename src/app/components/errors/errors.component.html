@@ -1,0 +1,30 @@
+<!-- Container with padding and margin for top and bottom, centered text -->
+<div class="container pt-5 mt-5 mb-5 text-center">
+  <!-- Row for organizing content horizontally -->
+  <div class="row">
+    <!-- Column occupying the full width on medium devices and larger -->
+    <div class="col-md-12">
+      <!-- Error template with margin, padding, rounded border, and shadow -->
+      <div class="error-template m-5 p-4 border rounded shadow">
+        <!-- Main heading for the error template -->
+        <h1>Oops!</h1>
+        <!-- Subheading indicating the error code -->
+        <h2>404 Not Found</h2>
+        <!-- Error details describing the issue -->
+        <div class="error-details">
+          Sorry, an error has occurred. The requested page was not found!
+        </div>
+        <!-- Error actions providing a link to the home page -->
+        <div class="error-actions">
+          <!-- Link button with primary style and large size, linking to the home page -->
+          <a routerLink="/" class="btn ">
+            <!-- Home icon (glyphicon) -->
+            <span class="glyphicon glyphicon-home"></span>
+            <!-- Button text -->
+            Take Me Home
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

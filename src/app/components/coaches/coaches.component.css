@@ -1,0 +1,41 @@
+.coach-image {
+  border-radius: 100px;
+  border: 2px solid transparent;
+  /* Set initial border color */
+  transition: border-color 0.3s ease;
+  /* Add a smooth transition effect */
+}
+
+.coach-image:hover {
+  border: solid 5px;
+  border-color: #628730;
+  /* Change border color to green on hover */
+}
+
+.btn.btn-custom {
+  color: #ffffff;
+  background-color: #628730;
+  border-radius: 40px;
+}
+
+.btn.btn-custom:hover {
+  background-color: #0D1315;
+}
+
+@keyframes zoomInOut {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.08);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+header {
+  animation: zoomInOut 5s infinite;
+}

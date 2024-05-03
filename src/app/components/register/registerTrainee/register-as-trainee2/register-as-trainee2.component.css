@@ -1,0 +1,29 @@
+form {
+  background-color: #fff;
+}
+
+.header {
+  height: 150px;
+  width: 100%;
+  background-color: #628730;
+
+}
+
+h1 {
+  display: block;
+  width: 50%;
+  margin: auto;
+  /* text-align:center; */
+  font-size: 40px;
+  color: rgb(252, 253, 255);
+}
+
+.btn {
+  background-color: #628730;
+  color: #fff;
+
+}
+
+.btn:hover {
+  background-color: #303C25;
+}

@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4 ms-0">
+      <img [src]="coach.imageUrl" alt="{{ coach.name }}" class="img-fluid rounded coach-image">
+    </div>
+    <div class="col-lg-8">
+      <h2 class="fw-bold">{{ coach.name }}</h2>
+      <h4 class="text-muted">{{ coach.jobTitle }}</h4>
+      <p class="lead">{{ coach.description }}</p>
+      <ul class="list-unstyled">
+        <li><strong>Age:</strong> {{ coach.age }}</li>
+        <li><strong>Experience:</strong> {{ coach.experience }} years</li>
+        <li><strong>Specialization:</strong> {{ coach.specialization }}</li>
+      </ul>
+      <h4 class="mt-4">Contact Information</h4>
+      <ul class="list-unstyled">
+        <li><strong>Phone:</strong> {{ coach.phone }}</li>
+        <li><strong>Email:</strong> {{ coach.email }}</li>
+      </ul>
+      <button class="btn btn-custom" (click)="bookCoach()">Book Now</button>
+      <div *ngIf="bookingSuccess" class="alert alert-success mt-3">
+        Booking successful!
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="pic my-5" style="position: relative;">
+  <!-- Image element with a responsive style -->
+  <img src="../../../assets/image/subscribe-bg-cut.jpg" alt="backgroundCoach" style="width:100% ; height: auto; ">
+
+  <!-- Semi-transparent black layer -->
+  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5);">
+  </div>
+
+
+  <div class="container"
+    style="position: absolute; top: 0%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: #ffffff;">
+    <h1 style="color: #628730;">Subscribe for Members</h1>
+    <p>to Receive Latest News and Special Offers </p>
+    <form class="row g-3">
+      <div class="col-auto">
+        <input type="email" class="form-control" placeholder="Your email">
+      </div>
+      <div class="col-auto">
+        <button class="btn btn-lg" type="submit">Subscribe</button>
+      </div>
+    </form>
+
+  </div>
+</div>

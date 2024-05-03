@@ -1,0 +1,308 @@
+<div class="pic" style="position: relative; padding-top: 60px;">
+  <!-- Image element with a responsive style -->
+  <img src="../../../assets/image/parallax_02.jpg" alt="backgroundCoach"
+    style="position:absolute; width: 100%; height: 100%;">
+
+  <!-- Semi-transparent black layer -->
+  <div style="position: absolute; top: 5; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5);">
+  </div>
+  <div class="container mt-5">
+    <div class="row form-floating">
+      <div class="col-md-12 ">
+        <!-- Registration form with formGroup binding and ngSubmit event -->
+        <form [formGroup]="RegTrainee" class="m-5 pb-3 border rounded shadow" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <div class="header">
+              <!-- Registration step heading -->
+              <h1 class="text-center pt-4">Registration Form  </h1>
+              <!-- Personal information section heading -->
+              <h3 class="text-white ps-2">Personal Information </h3>
+              <!-- Step indicator -->
+              <h6 class="text-white ps-2">Step: 1</h6>
+            </div>
+          </div>
+
+          <!-- Avatar upload section -->
+          <div class="form-group">
+            <div class="profile-section mt-5">
+              <div class="avatar-container">
+                <!-- Display current profile picture -->
+                <img [src]="imageSrc" alt="Profile Picture" class="avatar">
+                <!-- Input for selecting a new profile picture -->
+                <input formControlName="profileImage" type="file" id="avatar-upload" class="avatar-upload"
+                  (change)="onFileSelected($event)">
+                <!-- Label for editing the profile picture -->
+                <label for="avatar-upload" class="avatar-edit">Edit Image</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Form inputs for first name -->
+          <div class="form-group">
+            <div class="row form-floating mt-5 px-3">
+              <div class="col-md-6 form-floating pt-3">
+                <!-- Input for entering the first name -->
+                <input type="text" class="form-control" id="firstName" formControlName="firstName"
+                  [ngClass]="{'is-invalid': submitted && RegTrainee.controls['firstName'].errors}">
+                <!-- Validation error message for required first name -->
+                <div *ngIf="submitted && RegTrainee.controls['firstName'].errors" class="text-danger">
+                  First name is required
+                </div>
+                <!-- Label for the first name input -->
+                <label for="firstName" class="form-label ms-3">First Name <span class="text-danger">*</span></label>
+              </div>
+
+              <div class="col-md-6 form-floating pt-3">
+                <!-- Input for entering the last name -->
+                <input type="text" class="form-control" id="lastName" formControlName="lastName"
+                  [ngClass]="{'is-invalid': submitted && RegTrainee.controls['lastName'].errors}">
+                <!-- Validation error message for required last name -->
+                <div *ngIf="submitted && RegTrainee.controls['lastName'].errors" class="text-danger">
+                  Last name is required
+                </div>
+                <!-- Label for the last name input -->
+                <label for="lastName" class="form-label ms-3">Last Name <span class="text-danger">*</span></label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Form group for email and password -->
+          <div class="form-group">
+            <div class="row form-floating mt-3 px-3">
+
+              <!-- Email input section -->
+              <div class="col-md-6 form-floating pt-3">
+                <!-- Input for entering the email -->
+                <input type="email" class="form-control" id="floatingInput" formControlName="email"
+                  [ngClass]="{'is-invalid': submitted && RegTrainee.controls['email'].errors }">
+
+                <!-- Validation error messages for email -->
+                <div *ngIf="submitted && RegTrainee.controls['email'].errors" class="text-danger">
+                  <!-- Required email error message -->
+                  <div *ngIf="submitted && RegTrainee.controls['email'].errors['required']">
+                    Email is required
+                  </div>
+                  <!-- Invalid email format error message -->
+                  <div *ngIf="submitted && RegTrainee.controls['email'].errors?.['email']">
+                    Email is not correct
+                  </div>
+                </div>
+
+                <!-- Label for the email input -->
+                <label for="floatingInput" class="form-label ms-3">Email address <span
+                    class="text-danger">*</span></label>
+              </div>
+
+              <!-- Password input section -->
+              <div class="col-md-6 form-floating pt-3">
+                <!-- Input for entering the password -->
+                <input type="password" class="form-control" id="floatingPassword" formControlName="password"
+                  [ngClass]="{'is-invalid': submitted && RegTrainee.controls['password'].errors}">
+
+                <!-- Validation error messages for password -->
+                <div *ngIf="submitted && RegTrainee.controls['password'].errors" class="text-danger">
+                  <!-- Required password error message -->
+                  <div *ngIf="submitted && RegTrainee.controls['password'].errors['required']">
+                    Password is required
+                  </div>
+                  <!-- Minimum length requirement error message -->
+                  <div *ngIf="submitted && RegTrainee.controls['password'].errors['minlength']">
+                    Password must be at least 6 characters
+                  </div>
+                </div>
+
+                <!-- Label for the password input -->
+                <label for="floatingPassword" class="form-label ms-3">Password <span
+                    class="text-danger">*</span></label>
+              </div>
+
+            </div>
+          </div>
+
+
+
+
+          <!-- Form group for date of birth and national ID -->
+          <div class="form-group">
+            <div class="row form-floating mt-3 px-3">
+
+              <!-- Date of birth input section -->
+              <div class="col-md-6 form-floating pt-3">
+                <!-- Input for entering the date of birth -->
+                <input type="date" class="form-control" id="date" formControlName="date" (change)="calculateAge()"
+                  [ngClass]="{'is-invalid': submitted && RegTrainee.controls['date'].errors}">
+
+                <!-- Validation error message for date of birth -->
+                <div *ngIf="submitted && RegTrainee.controls['date'].errors" class="text-danger">
+                  <!-- Required date of birth error message -->
+                  <div *ngIf="submitted && RegTrainee.controls['date'].errors['required']">
+                    Date of birth is required
+                  </div>
+                </div>
+
+                <!-- Label for the date of birth input -->
+                <label for="data" class="form-label ms-3">Date of Birth <span class="text-danger">*</span></label>
+              </div>
+
+              <!-- Display the calculated age
+            <div *ngIf="age" class="mt-3">
+              <p>Calculated Age: {{ age }} years</p>
+            </div> -->
+
+
+
+              <!-- National ID input section -->
+              <div class="col-md-6 form-floating pt-3">
+                <!-- Input for entering the national ID -->
+                <input type="number" class="form-control" id="IdNumber" formControlName="idNumber"
+                  oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 14);"
+                  [ngClass]="{'is-invalid': submitted && RegTrainee.controls['idNumber'].errors}">
+
+                <!-- Validation error messages for national ID -->
+                <div *ngIf="submitted && RegTrainee.controls['idNumber'].errors" class="text-danger">
+                  <!-- Required national ID error message -->
+                  <div *ngIf="submitted && RegTrainee.controls['idNumber'].errors['required']">
+                    ID Number is required
+                  </div>
+                  <!-- Pattern (length) requirement error message -->
+                  <div *ngIf="submitted && RegTrainee.controls['idNumber'].errors['pattern']">
+                    ID Number must be 14-digit
+                  </div>
+                </div>
+
+                <!-- Label for the national ID input -->
+                <label for="data" class="form-label ms-3">Enter Your National ID <span
+                    class="text-danger">*</span></label>
+              </div>
+
+            </div>
+          </div>
+
+
+          <!-- Form group for phone number, city, and gender -->
+          <div class="form-group">
+            <div class="row mt-3 px-3 ">
+
+              <!-- Phone number input section -->
+              <div class="col-md-6 form-floating pt-3">
+                <!-- Input for entering the phone number -->
+                <input type="tel" class="form-control" id="phoneNumber" formControlName="phoneNumber"
+                  oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 11);"
+                  [ngClass]="{'is-invalid': submitted && RegTrainee.controls['phoneNumber'].errors}">
+
+                <!-- Validation error messages for phone number -->
+                <div *ngIf="submitted && RegTrainee.controls['phoneNumber'].errors" class="text-danger">
+                  <!-- Required phone number error message -->
+                  <div *ngIf="submitted && RegTrainee.controls['phoneNumber'].errors['required']">
+                    Phone number is required
+                  </div>
+                  <!-- Pattern (length) requirement error message -->
+                  <div *ngIf="submitted && RegTrainee.controls['phoneNumber'].errors['pattern']">
+                    Phone number must be 11-digit
+                  </div>
+                </div>
+
+                <!-- Label for the phone number input -->
+                <label for="inputPhone" class="form-label ms-3">Phone Number <span class="text-danger">*</span></label>
+              </div>
+
+              <!-- City selection section -->
+              <div class="col-md-6 form-floating pt-3">
+                <!-- Dropdown for selecting the city -->
+                <select id="inputCity" class="form-control " formControlName="city">
+                  <!-- Default option -->
+                  <option selected>Choose...</option>
+                  <!-- List of cities -->
+                  <option>Alexandria</option>
+                  <option>Aswan</option>
+                  <!-- Add more cities as needed -->
+                </select>
+                <!-- Label for the city selection -->
+                <label for="inputCity" class="form-label ms-3">City</label>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Form group for gender selection -->
+          <div class="form-group">
+            <div class="row mt-3 px-3">
+              <!-- Label for gender selection -->
+              <label class=" form-label text-start me-4">Gender</label>
+              <!-- Gender radio button options -->
+              <div class="d-flex ms-5">
+                <!-- Male option -->
+                <div class=" form-check form-check-inline me-2 col-md-4">
+                  <input class="form-check-input" type="radio" formControlName="gender" id="male" value="male">
+                  <label class="form-floating form-check-label" for="male">Male</label>
+                </div>
+                <!-- Female option -->
+                <div class="form-check form-check-inline me-2 col-md-4">
+                  <input class="form-check-input" type="radio" formControlName="gender" id="female" value="female">
+                  <label class=" form-check-label" for="female">Female</label>
+                </div>
+                <!-- Other option -->
+                <div class=" form-check form-check-inline me-4 col-md-4">
+                  <input class=" form-check-input" type="radio" formControlName="gender" id="other" value="other"
+                    checked>
+                  <label class="form-check-label" for="other">Other</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Form group for the submit button -->
+          <div class="form-group">
+            <div class="col-12 pt-3 px-3 ">
+              <!-- Submit button to proceed to Step 2 -->
+              <button type="submit" class="btn w-100">Step 2</button>
+            </div>
+          </div>
+
+
+          <!-- Form group for displaying a link to log in if the user already has an account -->
+          <div class="form-group">
+            <!-- Card footer with text aligned to the right and centered -->
+            <div class=" card-footer text-right text-center my-3">
+              <!-- Small text with a link to the login page -->
+              <small class="small">You already have an account.<a routerLink="../logt"> Log in
+                  here.</a></small>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="card-footer text-center " style="font-size: 20px; margin-top: 5px;">
+          <small>Registration As <a class="link-primary  link-opacity-90 link-opacity-100-hover"
+              style="text-decoration: none;" routerLink="../regc">{{title_coach}}</a></small>
+        </div> -->
+
+  <script>
+    // Get the elements by their IDs and classes
+    const avatarUpload = document.getElementById('avatar-upload');
+    const avatar = document.querySelector('.avatar');
+
+    // Add an event listener to the avatar upload input
+    avatarUpload.addEventListener('change', function () {
+      // Get the selected file
+      const file = this.files[0];
+
+      // Check if a file is selected
+      if (file) {
+        // Create a FileReader to read the contents of the file
+        const reader = new FileReader();
+
+        // Add an event listener to the FileReader to execute when the file is loaded
+        reader.addEventListener('load', function () {
+          // Set the source of the avatar image to the loaded result (image data URL)
+          avatar.setAttribute('src', this.result);
+        });
+
+        // Read the contents of the selected file as a data URL
+        reader.readAsDataURL(file);
+      }
+    });
+
+  </script>

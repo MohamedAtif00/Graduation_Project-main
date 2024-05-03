@@ -1,0 +1,55 @@
+.btn.btn-custom {
+  color: #ffffff;
+  background-color: #628730;
+  border-radius: 40px;
+}
+
+.btn.btn-custom:hover {
+  background-color: #0D1315;
+}
+
+div.link-opacity-90 {
+  opacity: 0.9;
+  /* Initial opacity */
+}
+
+div.link-opacity-100-hover:hover {
+  opacity: 1;
+  /* Opacity on hover */
+}
+
+div.link-opacity-100-hover:hover {
+  color: #628730;
+  /* Color change on hover */
+}
+
+.link-custom {
+  color: #ffffff;
+  text-decoration: none;
+
+}
+
+.link-custom:hover {
+  color: #628730;
+  /* Color change on hover */
+}
+
+.navbar-brand-tennis {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.navbar-brand-tennis:hover {
+  color: #628730;
+}
+
+.bi {
+  color: #ffffff;
+  text-decoration: none;
+
+}
+
+.bi:hover {
+  color: #628730;
+
+}
