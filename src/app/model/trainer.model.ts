@@ -8,4 +8,5 @@ export interface Trainer{
     specialization:string,
     phone:string,
     email:string
+    image:File
 }

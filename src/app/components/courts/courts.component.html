@@ -125,13 +125,13 @@
         </p>
 
         <!-- Row for the "book it" button -->
-        <div class="row col-lg-4">
-          <button type="submit" class="btn btn-custom m-3">Book it</button>
+        <div class="row col-lg-4" *ngIf="!authServ.user">
+          <button type="submit" class="btn btn-custom m-3" (click)="Selected('Hard')">Book it</button>
         </div>
       </div>
 
       <!-- Column for the image -->
-      <div class="col-md-5">
+      <div class="col-md-5" >
         <!-- Image related to Hard Tennis Courts -->
         <img src="../../../assets/image/hard.jpg" alt="hard tennis courts images" width="500" height="500">
       </div>
@@ -200,8 +200,8 @@
         </p>
 
         <!-- Row for the "book it" button -->
-        <div class="row col-lg-4">
-          <button type="submit" class="btn btn-custom m-3">Book it</button>
+        <div class="row col-lg-4" *ngIf="!authServ.user">
+          <button type="submit" class="btn btn-custom m-3" (click)="Selected('Clay')">Book it</button>
         </div>
       </div>
 
@@ -259,8 +259,8 @@
         </p>
 
         <!-- Row for the "book it" button -->
-        <div class="row col-lg-4">
-          <button type="submit" class="btn btn-custom m-3">Book it</button>
+        <div class="row col-lg-4" *ngIf="!authServ.user">
+          <button type="submit" class="btn btn-custom m-3" (click)="Selected('Grass')">Book it</button>
         </div>
       </div>
 

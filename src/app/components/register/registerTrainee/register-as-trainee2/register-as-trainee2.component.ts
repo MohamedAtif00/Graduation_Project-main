@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { GeneralResponse } from 'src/app/model/response/general-response.model';
+import { GeneralResponse } from '../../../../shared/general.response';
 import { Trainer } from 'src/app/model/trainer.model';
 import { SignUpService } from 'src/app/services/sign-up.service';
 
@@ -28,16 +28,17 @@ constructor(private fb: FormBuilder, private router: Router,private registerServ
 ngOnInit() {
   this.http.get<GeneralResponse<Trainer[]>>('https://localhost:7032/api/Trainer').subscribe(data=>{
     console.log(data);
+    if(data.value)
     this.trainers = data.value
   })
 
   this.trainingForm = this.fb.group({
     experience:  ['', Validators.required],
-    coach:       ['', Validators.required],
+    // coach:       ['', Validators.required],
     startDate:   ['', Validators.required],
     time:        ['', Validators.required],
     period:      ['', Validators.required],
-    court:       ['', Validators.required],
+    // court:       ['', Validators.required],
     medical:     ['', Validators.required],
     medicalDetails: [''],
   });
@@ -82,12 +83,12 @@ onSubmit() {
   this.registerServ.request.timeSession.AmPm = AmPm
 
 
-  this.registerServ.request.coachId = this.trainingForm.value.coach
+  //this.registerServ.request.coachId = this.trainingForm.value.coach
   this.registerServ.request.startTime = this.trainingForm.value.startDate
  // this.registerServ.request.selectedTime = this.trainingForm.value.time
   this.registerServ.request.TennisExp = this.trainingForm.value.experience
   this.registerServ.request.period =this.trainingForm.value.period
-  this.registerServ.request.tennisCourt = this.trainingForm.value.court.split(' ')[0]
+  //this.registerServ.request.tennisCourt = this.trainingForm.value.court.split(' ')[0]
   this.registerServ.request.hasHealthCondtion = this.trainingForm.value.medical == 'no'?false:true;
   this.registerServ.request.details = this.trainingForm.value.medicalDetails
 

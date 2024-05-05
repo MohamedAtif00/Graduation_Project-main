@@ -20,6 +20,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ProfileTraineeComponent } from './components/profile-trainee/profile-trainee.component';
 import { RegisterAsTrainee2Component } from './components/register/registerTrainee/register-as-trainee2/register-as-trainee2.component';
 import { CoachOneComponent } from './components/coaches/coach-one/coach-one.component';
+import { SelectCourtComponent } from './components/select-court/select-court.component';
+import { SelectTrainerComponent } from './components/select-trainer/select-trainer.component';
 
 
 
@@ -39,6 +41,8 @@ import { CoachOneComponent } from './components/coaches/coach-one/coach-one.comp
     ProfileTraineeComponent,
     RegisterAsTrainee2Component,
     CoachOneComponent,
+    SelectCourtComponent,
+    SelectTrainerComponent,
   ],
   imports:
   [

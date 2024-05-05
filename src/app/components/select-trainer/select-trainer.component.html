@@ -1,0 +1,27 @@
+<div class="container d-flex flex-wrap " style="margin-top: 100px;">
+
+  
+   <div class="col-lg-4" *ngFor="let item of trainers" (click)="Select(item.id.value)" style="cursor: pointer;">
+        <img [src]="getBase64Image(item.image)" alt="" height="200px" width="200px" class="coach-image" >
+        <h2 class="fw-normal">{{item.username}}</h2>
+    </div>
+
+      <!-- <div class="col-lg-4"  >
+        <img src="../../../assets/image/coach-03.jpg" alt="" height="200px" width="200px" class="coach-image" >
+        <h2 class="fw-normal">Sherman Warner</h2>
+        <p>Another exciting bit of representative placeholder content. This time, we've moved on to the second column.
+        </p>
+        <p><a class="btn btn-custom">View details »</a></p>
+      </div>
+  
+
+      <div class="col-lg-4" >
+        <img src="../../../assets/image/coach-01.jpg" alt="" height="200px" width="200px" class="coach-image" >
+        <h2 class="fw-normal">John Portman</h2>
+        <p>And lastly this, the third column of representative placeholder content.</p>
+        <p><a class="btn btn-custom" >View details »</a></p>
+    </div> -->
+
+</div>
+
+  
