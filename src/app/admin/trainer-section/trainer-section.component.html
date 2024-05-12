@@ -1,0 +1,49 @@
+<div class="content ">
+    
+    <div class="container">
+      <button class="btn btn-primary " routerLink="/admin/trainer-create">Create</button>
+
+      <div class="table-responsive">
+
+        <table class="table custom-table">
+          <thead>
+            <tr>
+              <th scope="col">Order</th>
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Experience</th>
+              <th scope="col">Image</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of trainers;let i = index" style="cursor: pointer;" >
+              <td routerLink="/admin/trainer-details/{{item.id.value}}">
+                {{i +1}}
+              </td>
+              <td routerLink="/admin/trainer-details/{{item.id.value}}">{{item.username}}</td>
+              <td routerLink="/admin/trainer-details/{{item.id.value}}">
+                {{item.email}}
+              </td>
+              <td>{{item.experience}}</td>
+              <td routerLink="/admin/trainer-details/{{item.id.value}}">
+                <ul class="persons">
+                  <li>
+                    <a >
+                      <img [src]="base64ToUrl(item.image)" alt="Person" class="img-fluid">
+                    </a>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <button class="btn btn-danger " (click)="DeleteTrainer(item)">Delete</button>
+              </td>
+            </tr>
+                  
+          </tbody>
+        </table>
+      </div>
+
+
+    </div>
+
+  </div>

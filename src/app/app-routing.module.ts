@@ -12,12 +12,14 @@ import { ProfileTraineeComponent } from './components/profile-trainee/profile-tr
 import { CoachOneComponent } from './components/coaches/coach-one/coach-one.component';
 import { SelectCourtComponent } from './components/select-court/select-court.component';
 import { SelectTrainerComponent } from './components/select-trainer/select-trainer.component';
+import { TournamentsComponent } from './components/tournaments/tournaments.component';
 
 
 
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
+  {path:'admin',loadChildren:()=>import('./admin/admin.module').then(x =>x.AdminModule)},
   {path:'home',     component:HomeComponent},
   {path:'coaches',  component:CoachesComponent},
   {path:'courts',   component:CourtsComponent},
@@ -29,6 +31,7 @@ const routes: Routes = [
   {path:'details/:id',    component:CoachOneComponent},
   {path:'select-court',component:SelectCourtComponent},
   {path:'select-trainer',component:SelectTrainerComponent},
+  {path:'tournament',component:TournamentsComponent},
 
 
   {path:'**',       component:ErrorsComponent},

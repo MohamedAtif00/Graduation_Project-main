@@ -28,7 +28,7 @@ export class AuthService{
 
     constructor(private http:HttpClient){
         
-        this.token = localStorage.getItem('User_Token_Key')
+        this.token = localStorage.getItem('Token')
         if(this.token)
         this.http.get<any>(this.getAllowAccess+this.token).subscribe(data=>{
             this.user = {id:data.userId,username:data.username,email:data.email,role:data.role,token:data.token,tourismType:data.tourismType}
@@ -38,7 +38,7 @@ export class AuthService{
 
     init()
     {
-        this.token = localStorage.getItem('User_Token_Key')
+        this.token = localStorage.getItem('Token')
         if(this.token)
             return this.http.post<any>(this.getAllowAccess , {token:this.token})
         else return null
@@ -47,12 +47,12 @@ export class AuthService{
 
     GetToken()
     {
-        return localStorage.getItem('User_Token_Key');
+        return localStorage.getItem('Token');
     }
 
     SetTokens(token:string)
     {
-         localStorage.setItem('User_Token_Key',token)
+         localStorage.setItem('Token',token)
     }
 
 
@@ -121,7 +121,7 @@ export class AuthService{
 
     Logout()
     {
-        localStorage.removeItem('User_Token_Key')
+        localStorage.removeItem('Token')
         this.user = null
         this.token = null
     }

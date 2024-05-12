@@ -1,0 +1,28 @@
+<div class="container " *ngIf="coach">
+    <div class="row mt-5  ">
+      <div class="col-lg-4 ms-0">
+        <img [src]="base64ToUrl(coach.image)" alt="{{ coach.username }}" class="img-fluid rounded coach-image">
+      </div>
+      <div class="col-lg-8">
+          <div class="">
+            <h2 class="fw-bold">{{coach.username}}</h2>
+            <button class="btn btn-success float-end fs-5 " routerLink="/admin/trainer-create/{{coach.id.value}}">Edit</button>
+        </div>
+        <h4 class="text-muted">Trainer</h4>
+        <!-- <p class="lead">{{ coach }}</p> -->
+        <ul class="list-unstyled">
+          <li><strong>Age:</strong> {{ getAge(coach.birthDate) }}</li>
+          <li><strong>Experience:</strong> {{ coach.experience }} years</li>
+          <li><strong>Specialization:</strong> {{ coach.specialization }}</li>
+        </ul>
+        <h4 class="mt-4">Contact Information</h4>
+        <ul class="list-unstyled">
+          <li><strong>Phone:</strong> {{ coach.phone }}</li>
+          <li><strong>Email:</strong> {{ coach.email }}</li>
+        </ul>
+      </div>
+    </div>
+
+</div>
+  
+

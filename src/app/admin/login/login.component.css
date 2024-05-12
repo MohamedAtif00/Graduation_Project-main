@@ -1,0 +1,20 @@
+form {
+    background-color: #fff;
+  }
+  
+  .btn{
+    color: #fff;
+  background-color: #628730;
+  }
+  .btn:hover{
+    background-color: #1D1F20;
+  }
+  
+  small a{
+    text-decoration: none;
+    color: #628730;
+  }
+  small a:hover {
+    color: #1D1F20;
+  }
+  

@@ -1,0 +1,89 @@
+form {
+    background-color: #fff;
+  }
+  
+  .header {
+    height: 150px;
+    width: 100%;
+    background-color: #628730;
+  
+  
+  }
+  
+  h1 {
+    display: block;
+    width: 50%;
+    margin: auto;
+    /* text-align:center; */
+    font-size: 50px;
+    color: rgb(255, 255, 255);
+  }
+  
+  .profile-section {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  
+  .avatar-container {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    border-radius: 100px;
+    margin: 0 auto;
+  }
+  
+  
+  .avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    border: aqua;
+  }
+  
+  .avatar-upload {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  .avatar-edit {
+    position: absolute;
+    bottom: 0;
+    right: 25px;
+    background-color: #1b2c37;
+    padding: 5px 10px;
+    color: #fff;
+    border-radius: 80px;
+    cursor: pointer;
+    display: none;
+  
+  }
+  
+  .avatar-container:hover .avatar-edit {
+    display: block;
+  
+  }
+  
+  .btn {
+    background-color: #628730;
+    color: #fff;
+  }
+  
+  .btn:hover {
+    background-color: #1b2c37;
+  }
+  
+  .small a {
+    color: #628730;
+    text-decoration: none;
+  }
+  
+  .small a:hover {
+    color: #1b2c37;
+  }

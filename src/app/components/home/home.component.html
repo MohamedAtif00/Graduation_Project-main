@@ -183,15 +183,18 @@ color: rgb(5, 10, 10);">
     <div class="col-md-4 partition">
       <!-- Content for the second partition -->
       <ul class="partition-text">
-        <li class="data">21 Apr 2023 </li>
-        <li class="vs">Marcus Crown vs. German Stiller </li>
-        <li class="time"> 03:00 - Court 01</li>
-        <li class="data">21 Mar 2023 </li>
+        <div class="" *ngFor="let item of tournaments">
+          <li class="data">{{item.day}} </li>
+          <li class="vs">Marcus Crown vs. German Stiller </li>
+          <li class="time"> {{item.time}}- {{item.courtName}}</li>
+
+        </div>
+        <!-- <li class="data">21 Mar 2023 </li>
         <li class="vs">Andreas Medvedev vs. Antony Fonsteur </li>
         <li class="time"> 06:00 - Court 01</li>
         <li class="data">28 Feb 2023 </li>
         <li class="vs">Serena Larsson vs. Olivia Schneider </li>
-        <li class="time"> 08:00 - Court 01</li>
+        <li class="time"> 08:00 - Court 01</li> -->
 
         <li style="text-align: center; margin-top: 5px;  padding: 10px 20px;
         "><a class="btn btn-custom">Read More</a></li>

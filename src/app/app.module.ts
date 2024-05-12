@@ -22,6 +22,9 @@ import { RegisterAsTrainee2Component } from './components/register/registerTrain
 import { CoachOneComponent } from './components/coaches/coach-one/coach-one.component';
 import { SelectCourtComponent } from './components/select-court/select-court.component';
 import { SelectTrainerComponent } from './components/select-trainer/select-trainer.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TournamentsComponent } from './components/tournaments/tournaments.component';
+
 
 
 
@@ -43,6 +46,7 @@ import { SelectTrainerComponent } from './components/select-trainer/select-train
     CoachOneComponent,
     SelectCourtComponent,
     SelectTrainerComponent,
+    TournamentsComponent
   ],
   imports:
   [
@@ -52,7 +56,8 @@ import { SelectTrainerComponent } from './components/select-trainer/select-train
     ReactiveFormsModule,
     FontAwesomeModule,
     HttpClientModule,
-
+    BrowserAnimationsModule,
+    
   ],
   providers: [ ],
   bootstrap: [AppComponent]

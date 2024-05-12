@@ -1,0 +1,32 @@
+<div class="container " style="margin-top: 90px;">
+  
+      <form [formGroup]="tournamentForm" (ngSubmit)="onSubmit()" class="mt-4" *ngIf="tournamentForm">
+          <!-- <div class="mb-3">
+            <label for="id" class="form-label">ID</label>
+            <input type="text" class="form-control" id="id" formControlName="id.value">
+          </div> -->
+          <div class="mb-3">
+            <label for="courtName" class="form-label">courtName</label>
+            <input type="text" class="form-control" id="courtName" formControlName="courtName" >
+          </div>
+          <div class="mb-3">
+            <!-- <ngb-timepicker [(ngModel)]="time" [meridian]="meridian" /> -->
+            <!-- <ngbd-timepicker-meridian></ngbd-timepicker-meridian> -->
+
+            <timepicker formControlName="time"></timepicker> 
+          </div>
+          <div class="mb-3">
+            <label for="experience" class="form-label">Day</label>
+            <input type="date" class="form-control" id="experience" formControlName="day" >
+          </div>
+
+          <!-- <div class="mb-3">
+            <label for="image" class="form-label">Image </label>
+            <input type="text" class="form-control" id="image" formControlName="image">
+          </div> -->
+          <button type="submit" class="btn btn-primary" [disabled]="!tournamentForm.valid">Submit</button>
+        </form>
+        
+  
+  </div>
+  

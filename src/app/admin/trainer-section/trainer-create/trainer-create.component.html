@@ -1,0 +1,53 @@
+<div class="container " style="margin-top: 90px;">
+  <div class="form-group">
+    <div class="profile-section mt-5">
+      <div class="avatar-container">
+        <!-- Display current profile picture -->
+        <img [src]="imageSrc" alt="Profile Picture" class="avatar">
+        <!-- Input for selecting a new profile picture -->
+        <input formControlName="profileImage" type="file" id="avatar-upload" class="avatar-upload"
+          (change)="onFileSelected($event)">
+        <!-- Label for editing the profile picture -->
+        <label for="avatar-upload" class="avatar-edit">Edit Image</label>
+      </div>
+    </div>
+  </div>
+
+    <form [formGroup]="trainerForm" (ngSubmit)="onSubmit()" class="mt-4" *ngIf="trainerForm">
+        <!-- <div class="mb-3">
+          <label for="id" class="form-label">ID</label>
+          <input type="text" class="form-control" id="id" formControlName="id.value">
+        </div> -->
+        <div class="mb-3">
+          <label for="username" class="form-label">Username</label>
+          <input type="text" class="form-control" id="username" formControlName="username" >
+        </div>
+        <div class="mb-3">
+          <label for="birthDate" class="form-label">Birth Date</label>
+          <input type="date" class="form-control" id="birthDate" formControlName="birthDate" >
+        </div>
+        <div class="mb-3">
+          <label for="experience" class="form-label">Experience</label>
+          <input type="number" class="form-control" id="experience" formControlName="experience" >
+        </div>
+        <div class="mb-3">
+          <label for="specialization" class="form-label">Specialization</label>
+          <input type="text" class="form-control" id="specialization" formControlName="specialization" >
+        </div>
+        <div class="mb-3">
+          <label for="phone" class="form-label">Phone</label>
+          <input type="tel" class="form-control" id="phone" formControlName="phone" >
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="email" formControlName="email" >
+        </div>
+        <!-- <div class="mb-3">
+          <label for="image" class="form-label">Image </label>
+          <input type="text" class="form-control" id="image" formControlName="image">
+        </div> -->
+        <button type="submit" class="btn btn-primary" [disabled]="!trainerForm.valid">Submit</button>
+      </form>
+      
+
+</div>
