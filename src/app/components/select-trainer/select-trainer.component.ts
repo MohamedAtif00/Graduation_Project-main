@@ -15,6 +15,7 @@ export class SelectTrainerComponent implements OnInit{
   constructor(private registerServ:SignUpService ,private router:Router){}
 
   ngOnInit(): void {
+
     this.registerServ.GetAllTrainer().subscribe(data=>{
       console.log(data);
       if(data.value)

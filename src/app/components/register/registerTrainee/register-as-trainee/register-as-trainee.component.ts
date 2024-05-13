@@ -77,7 +77,9 @@ onSubmit() {
   }, 3000);
 
   // Add information to register request
-
+  this.registerServ.clear();
+  console.log(this.registerServ.request);
+  
   this.registerServ.request.firstName = this.RegTrainee.value.firstName;
   this.registerServ.request.lastName = this.RegTrainee.value.lastName;
   this.registerServ.request.email = this.RegTrainee.value.email;

@@ -29,11 +29,11 @@ export class TournamentService{
         return this.http.post<GeneralResponse<any>>(this.addTournament,request);
     }
 
-    AddUserToTournament(id:string)
+    AddUserToTournament(id:string,userId:string)
     {
         console.log('user',this.authServ.user);
         
-        return this.http.post<GeneralResponse<any>>(this.addUserToTournament,{tournamentId:id,userId:this.authServ.user?.id});
+        return this.http.post<GeneralResponse<any>>(this.addUserToTournament,{tournamentId:id,userId:userId});
     }
 
     GetAllUsersForTournamant(id:string)

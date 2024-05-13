@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from 'src/app/authentication/service/auth.service';
 import { GetTournament, Tournament } from 'src/app/model/tournament.model';
 import { TournamentService } from 'src/app/services/tournament.service';
 
@@ -19,7 +20,7 @@ export class TournamentsComponent {
 
   tournaments:(GetTournament & {users:user[]})[] = [];
 
-  constructor(private tournamentServ:TournamentService){}
+  constructor(private tournamentServ:TournamentService,private authServ:AuthService){}
 
 
   ngOnInit(): void {
@@ -51,10 +52,14 @@ export class TournamentsComponent {
 
   Book(e:GetTournament)
   {
-    this.tournamentServ.AddUserToTournament(e.id.value).subscribe(data=>{
-      console.log(data);
-      alert('booked')
-
+    this.authServ.AllowAccessToken().subscribe(data=>{
+      console.log();
+      if(data)
+      this.tournamentServ.AddUserToTournament(e.id.value,data?.userId).subscribe(data=>{
+        console.log(data);
+        alert('booked')
+  
+      })
     })
   }
 

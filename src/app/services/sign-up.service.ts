@@ -38,12 +38,35 @@ export class SignUpService {
   private rateTrainer:string = `${development.localhost}Trainer/RateTrainer`;
   private getRatesTrainer:string = `${development.localhost}Trainer/GetRatingsForTrainer/`;
 
-  constructor(private http:HttpClient){}
+  constructor(private http:HttpClient){
+
+  }
+
+  clear()
+  {
+    this.request.email = '';
+    this.request.firstName = '';
+    this.request.lastName = '';
+    this.request.password = '';
+    this.request.birthdate = new Date();
+    this.request.nationalId = '';
+    this.request.city = '';
+    this.request.phone = '';
+    this.request.gender = '';
+    this.request.coachId = '';
+    this.request.tennisCourt == '';
+    this.request.timeSession ={Hours:2,Minutes:3,AmPm:''};
+    this.request.startTime = '';
+    this.request.tennisCourt = '';
+    this.request.period = '';
+    this.request.hasHealthCondtion =false;
+    this.request.details = '';
+  }
 
 
   UserRegister()
   {
-    
+    this.formdate = new FormData();
     this.formdate.append('email',this.request.email);
     this.formdate.append('firstName',this.request.firstName);
     this.formdate.append('lastName',this.request.lastName);
