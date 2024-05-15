@@ -25,16 +25,36 @@
 <!-- Container for Coaches -->
 <div class="container">
 
+  <div class="d-flex  justify-content-center gap-5">
+    <div class="row text-center w-25 ">
+      <label for="search">Price:</label>
+      <input id="search" class="rounded-3 " type="number" [(ngModel)]="searchQuery"  placeholder="Enter Price">
+    </div>
+    <div class="row text-center w-25 ">
+      <label for="search">Experience:</label>
+      <input id="search" class="rounded-3 " type="number" [(ngModel)]="searchExp"  placeholder="Enter Price">
+    </div>
+
+  </div>
   <!-- First Row of Coaches -->
   <div class="row my-5 py-5">
     <!-- Coach 1 -->
-
+  <!-- search-box.component.html -->
  <div class="col-lg-4" *ngFor="let item of trainers">
-      <img [src]="getBase64Image(item.image)" alt="" height="200px" width="200px" class="coach-image" (click)="navigateToCoach(item.id.value)">
+  <div class="" *ngIf="(!searchQuery || item.price == searchQuery || searchQuery == 0) && (!searchExp || searchExp == item.experience || searchExp == 0)">
+    <img [src]="getBase64Image(item.image)" alt="" height="200px" width="200px" class="coach-image" (click)="navigateToCoach(item.id.value)">
+    <div class="d-flex justify-content-around ">
       <h2 class="fw-normal">{{item.username}}</h2>
-      <p>Some representative placeholder content for the three columns of text below the carousel. This is the first
-        column.</p>
-      <p><a class="btn btn-custom" (click)="navigateToCoach(item.id.value)" >View details »</a></p>
+      <h3 class="fw-normal" *ngIf="item.price">$ {{item.price}}</h3>
+    </div>
+    <p>Some representative placeholder content for the three columns of text below the carousel. This is the first
+      column.</p>
+      <div class="d-flex  justify-content-between  pt-0  align-items-start flex-row ">
+        <p><a class="btn btn-custom" (click)="navigateToCoach(item.id.value)" >View details »</a></p>
+        <div class=" d-flex justify-content-center  w-25 gap-2 pt-0 " *ngIf="item.avgRating"> <p class="pt-2 fs-4 ">{{item.avgRating}} </p><svg class="pt-0 mt-0 " width="30" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><linearGradient id="q0c2dLEp_4LHk~8cW2fATa" x1="9.009" x2="38.092" y1="6.36" y2="45.266" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ffda1c"/><stop offset="1" stop-color="#feb705"/></linearGradient><path fill="url(#q0c2dLEp_4LHk~8cW2fATa)" d="M24.913,5.186l5.478,12.288l13.378,1.413c0.861,0.091,1.207,1.158,0.564,1.737l-9.993,9.005l2.791,13.161c0.18,0.847-0.728,1.506-1.478,1.074L24,37.141l-11.653,6.722c-0.75,0.432-1.657-0.227-1.478-1.074l2.791-13.161l-9.993-9.005c-0.643-0.579-0.296-1.646,0.564-1.737l13.378-1.413l5.478-12.288C23.439,4.395,24.561,4.395,24.913,5.186z"/></svg></div>
+      </div>
+
+  </div>
     </div>
     <!-- Coach 2 -->
     <!-- <div class="col-lg-4"  >

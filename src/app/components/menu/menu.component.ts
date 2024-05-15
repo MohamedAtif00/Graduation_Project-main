@@ -19,7 +19,7 @@ export class MenuComponent {
 
   signup(){
       // this.router.navigate(['/step1t']);
-      this.router.navigate(['select-court']);
+      this.router.navigate(['step1t']);
     }
 
   signout()

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/authentication/service/auth.service';
 import { SignUpService } from 'src/app/services/sign-up.service';
+import { TrainerService } from 'src/app/services/trainer.service';
 interface Coach {
   trainerId:string,
   name: string;
@@ -47,7 +48,7 @@ export class CoachOneComponent implements OnInit {
   };
 
 
-  constructor(private registerServ:SignUpService,private route:ActivatedRoute,private authServ:AuthService) { }
+  constructor(private registerServ:SignUpService,private route:ActivatedRoute,public authServ:AuthService,private trainerServ:TrainerService,private router:Router) { }
 
   ngOnInit(): void {
     let id =this.route.snapshot.params['id'];
@@ -105,11 +106,10 @@ export class CoachOneComponent implements OnInit {
   console.log('Booking with coach:', this.coach.name);
    // Example: Simulate booking success
   this.bookingSuccess = true;
-
-     // Hide success message after 3 seconds
-    setTimeout(() => {
-      this.bookingSuccess = false;
-    }, 3000);
+    this.trainerServ.trainerId = this.coach.trainerId
+    console.log(this.trainerServ.trainerId);
+    
+    this.router.navigate(['select-court']);
   }
 
 }

@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit{
       if(data.value)
       {
         this.authServ.SetTokens(data.value.jwtToken);
-        this.router.navigate(['admin','']);
+        this.router.navigate(['admin','trainer-section']);
       }
 
     });

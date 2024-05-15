@@ -39,6 +39,7 @@ export class TrainerCreateComponent implements OnInit{
         birthDate: [this.getYearMonthDay(this.trainer.birthDate), Validators.required],
         experience: [this.trainer.experience, Validators.required],
         specialization: [this.trainer.specialization, Validators.required],
+        price:[this.trainer.price,Validators.required],
         phone: [this.trainer.phone, Validators.required],
         email: [this.trainer.email, [Validators.required, Validators.email]],
   
@@ -54,6 +55,7 @@ export class TrainerCreateComponent implements OnInit{
         birthDate: ['', Validators.required],
         experience: ['', Validators.required],
         specialization: ['', Validators.required],
+        price:['',Validators.required],
         phone: ['', Validators.required],
         email: ['', [Validators.required, Validators.email]],
   
@@ -112,6 +114,7 @@ export class TrainerCreateComponent implements OnInit{
                                         birthDate:this.trainerForm.value.birthDate,
                                         experience:this.trainerForm.value.experience,
                                         specialization:this.trainerForm.value.specialization,
+                                        price:this.trainerForm.value.price,
                                         phone:this.trainerForm.value.phone,
                                         email:this.trainerForm.value.email,
                                         image:this.file??this.base64toFile(this.trainer.image)}).subscribe(data=>{
@@ -125,6 +128,7 @@ export class TrainerCreateComponent implements OnInit{
                                     birthDate:this.trainerForm.value.birthDate,
                                     experience:this.trainerForm.value.experience,
                                     specialization:this.trainerForm.value.specialization,
+                                    price:this.trainerForm.value.price,
                                     phone:this.trainerForm.value.phone,
                                     email:this.trainerForm.value.email,
                                     image:this.file}).subscribe(data=>{

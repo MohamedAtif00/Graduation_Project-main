@@ -6,6 +6,7 @@ export interface Trainer{
     birthDate:string,
     experience:number,
     specialization:string,
+    price:number,
     phone:string,
     email:string
     image:string
@@ -17,6 +18,7 @@ export interface PostUpdateTrainer{
     birthDate:string,
     experience:number,
     specialization:string,
+    price:number,
     phone:string,
     email:string
     image:File
@@ -27,6 +29,7 @@ export interface PostCreateTrainer{
     birthDate:string,
     experience:number,
     specialization:string,
+    price:number,
     phone:string,
     email:string
     image:File

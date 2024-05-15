@@ -1,10 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { GeneralResponse } from '../../../../shared/general.response';
 import { Trainer } from 'src/app/model/trainer.model';
 import { SignUpService } from 'src/app/services/sign-up.service';
+import { Observable, of, delay, map } from 'rxjs';
+import { CustomValidatorService } from 'src/app/validators/CustomValidatorService ';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-register-as-trainee2',
@@ -22,7 +25,12 @@ trainingForm!: FormGroup;
 
 trainers!:Trainer[];
 // Constructor
-constructor(private fb: FormBuilder, private router: Router,private registerServ:SignUpService,private http:HttpClient) {}
+constructor(private fb: FormBuilder, 
+            private router: Router,
+            private registerServ:SignUpService,
+            private http:HttpClient,
+            private validator:CustomValidatorService,
+             private tousterServ:ToastrService) {}
 
 // Initialize the form with form controls and validators
 ngOnInit() {
@@ -37,17 +45,33 @@ ngOnInit() {
     // coach:       ['', Validators.required],
     startDate:   ['', Validators.required],
     time:        ['', Validators.required],
-    period:      ['', Validators.required],
+    period:      ['', (Validators.required)],
     // court:       ['', Validators.required],
     medical:     ['', Validators.required],
     medicalDetails: [''],
-  });
+  }, { asyncValidators: [this.validator.validateDate()] }
+
+);
+
+  this.trainingForm.statusChanges.subscribe(status =>{
+    if (status === 'INVALID') {
+      const startDateErrors = this.trainingForm.get('startDate')?.errors;
+      if (startDateErrors?.['invalidDate']) {
+        this.tousterServ.error('Choose another date', 'Date Unavailable');
+      }
+    }
+  })
+
+
+
 }
 
 // Form Submission
 onSubmit() {
   // Handle your form submission
-
+  debugger;
+  console.log(this.trainingForm);
+  
   this.submitted = true;
   if (this.trainingForm.invalid) {
     return;
@@ -93,11 +117,12 @@ onSubmit() {
   this.registerServ.request.details = this.trainingForm.value.medicalDetails
 
   console.log('register',this.registerServ.request);
-  
+  debugger;
 
   this.registerServ.UserRegister().subscribe(data=>{
     console.log(data);
-    this.router.navigate(['home'])
+    this.router.navigate(['home']);
+    // this.tousterServ.success('Sign Up Successfull');
   });
 
 
@@ -117,6 +142,35 @@ onMedicalConditionChange() {
   medicalDetailsControl!.updateValueAndValidity();
 
 }
+
+
+// validate(control: AbstractControl): Observable<ValidationErrors | null> {
+//   // Simulate an HTTP request
+//   let startDay = control.get('startDate');
+//   let timeSession = control.get('time');
+
+//   if(startDay?.value && timeSession?.value)
+//     {
+//       let [houre,minutes] =  timeSession?.value.split(':');
+//       let AmPm = minutes.split(' ')[1]
+    
+//       const request = {startDay:<string>(startDay.value),timeSession:{Hours:parseInt(houre),Minutes:parseInt(minutes),AmPm:<string>AmPm}}
+
+//       return this.registerServ.CheckDate(request).pipe(
+//         map(data=>{
+//           if(data.value)
+//             {
+//               return of(true);
+//             }else
+//             {
+//               return of(false)
+//             }
+//         })
+//       )
+
+//     }
+//     return of(null);
+// }
 
 }
 

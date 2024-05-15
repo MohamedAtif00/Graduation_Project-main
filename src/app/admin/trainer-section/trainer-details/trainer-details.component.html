@@ -14,6 +14,7 @@
           <li><strong>Age:</strong> {{ getAge(coach.birthDate) }}</li>
           <li><strong>Experience:</strong> {{ coach.experience }} years</li>
           <li><strong>Specialization:</strong> {{ coach.specialization }}</li>
+          <li *ngIf="coach.price"><strong >Price:</strong> $ {{ coach.price }}</li>
         </ul>
         <h4 class="mt-4">Contact Information</h4>
         <ul class="list-unstyled">

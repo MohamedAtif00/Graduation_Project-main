@@ -10,7 +10,8 @@ import { SignUpService } from 'src/app/services/sign-up.service';
 })
 export class CoachesComponent implements OnInit{
 
-
+  searchQuery!:number;
+  searchExp!:number;
   trainers!:Trainer[];
   constructor(private router: Router,private registerServ:SignUpService) {}
 
@@ -32,6 +33,11 @@ export class CoachesComponent implements OnInit{
 
         // Navigate to details for Coach 1
         this.router.navigate(['/details',id]);
+
+  }
+
+  onSearchQueryChange()
+  {
 
   }
 }

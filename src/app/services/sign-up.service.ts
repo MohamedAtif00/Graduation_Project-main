@@ -33,6 +33,7 @@ export class SignUpService {
 
 
   private userRegister:string = `${development.localhost}Authentication/Register`;
+  private checkDate:string = `${development.localhost}Authentication/CheckDate`;
   private getAllTrainer:string = `${development.localhost}Trainer`;
   private getSingleTrainer:string = `${development.localhost}Trainer/`;
   private rateTrainer:string = `${development.localhost}Trainer/RateTrainer`;
@@ -55,7 +56,7 @@ export class SignUpService {
     this.request.gender = '';
     this.request.coachId = '';
     this.request.tennisCourt == '';
-    this.request.timeSession ={Hours:2,Minutes:3,AmPm:''};
+    this.request.timeSession = {Hours:2,Minutes:3,AmPm:''};
     this.request.startTime = '';
     this.request.tennisCourt = '';
     this.request.period = '';
@@ -81,6 +82,7 @@ export class SignUpService {
     this.formdate.append('timeSession.Minutes',this.request.timeSession.Minutes.toString());
     this.formdate.append('timeSession.Hours',this.request.timeSession.Hours.toString());
     this.formdate.append('timeSession.AmPm',this.request.timeSession.AmPm);
+    this.formdate.append('startDay',this.request.startTime);
     //this.formdate.append('tennisCourt',this.request.tennisCourt);
     this.formdate.append('period',this.request.period);
     //this.formdate.append('trainerId',this.request.coachId);
@@ -88,7 +90,7 @@ export class SignUpService {
     this.formdate.append('details',this.request.email);
 
 
-    return this.http.post<GeneralResponse<RegisterResponse>>(this.userRegister,this.formdate);
+    return this.http.post<GeneralResponse<RegisterResponse>>(this.userRegister,this.formdate).pipe();
   }
 
 
@@ -120,6 +122,11 @@ export class SignUpService {
   GetRatesForTrainer(id:string)
   {
     return   this.http.get<any>(this.getRatesTrainer+id);
+  }
+
+  CheckDate(request:{startDay:string,timeSession:{Hours:number,Minutes:number,AmPm:string}})
+  {
+    return this.http.post<GeneralResponse<boolean>>(this.checkDate,request);
   }
 
 

@@ -17,7 +17,7 @@
         <li><strong>Phone:</strong> {{ coach.phone }}</li>
         <li><strong>Email:</strong> {{ coach.email }}</li>
       </ul>
-      <div class="d-flex justify-content-between ">
+      <div class="d-flex justify-content-between " *ngIf="authServ.user">
         <button class="btn btn-custom" (click)="bookCoach()">Book Now</button>
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#exampleModal">

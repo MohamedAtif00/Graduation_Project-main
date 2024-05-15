@@ -24,6 +24,7 @@ import { SelectCourtComponent } from './components/select-court/select-court.com
 import { SelectTrainerComponent } from './components/select-trainer/select-trainer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TournamentsComponent } from './components/tournaments/tournaments.component';
+import { ToastrModule, provideToastr } from 'ngx-toastr';
 
 
 
@@ -57,7 +58,7 @@ import { TournamentsComponent } from './components/tournaments/tournaments.compo
     FontAwesomeModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    
+    ToastrModule.forRoot(),
   ],
   providers: [ ],
   bootstrap: [AppComponent]

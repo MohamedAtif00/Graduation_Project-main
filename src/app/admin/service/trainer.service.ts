@@ -39,6 +39,7 @@ export class TrainerService{
         form.append('birthdate',trainer.birthDate);
         form.append('exp',trainer.experience.toString());
         form.append('specia',trainer.specialization);
+        form.append('price',trainer.price.toString());
         form.append('phone',trainer.phone);
         form.append('email',trainer.email);
         form.append('image',trainer.image);
@@ -54,6 +55,7 @@ export class TrainerService{
         form.append('birthdate',trainer.birthDate);
         form.append('exp',trainer.experience.toString());
         form.append('specia',trainer.specialization);
+        form.append('price',trainer.price.toString());
         form.append('phone',trainer.phone);
         form.append('email',trainer.email);
         form.append('image',trainer.image);
