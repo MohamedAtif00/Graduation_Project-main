@@ -102,6 +102,10 @@ export class CoachOneComponent implements OnInit {
   }
 
   bookCoach() {
+    this.authServ.AllowAccessToken().subscribe(data=>{
+      console.log(data);
+      
+    })
    // Implement booking logic here
   console.log('Booking with coach:', this.coach.name);
    // Example: Simulate booking success

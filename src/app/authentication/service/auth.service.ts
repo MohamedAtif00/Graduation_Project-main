@@ -31,7 +31,7 @@ export class AuthService{
         this.token = localStorage.getItem('Token')
         if(this.token)
         this.http.get<any>(this.getAllowAccess+this.token).subscribe(data=>{
-            this.user = {id:data.userId,username:data.username,email:data.email,role:data.role,token:data.token,tourismType:data.tourismType}
+            this.user = {id:data.userId,username:data.username,email:data.email,role:data.role,token:data.token}
             //console.log('service',this.user);
         })
     }
@@ -97,7 +97,7 @@ export class AuthService{
       
         return this.http.get<AllowAccessResponse>(url+token).pipe(tap(data=>{
             // Get the data of the user from back-end
-
+            this.user = this.user = {id:data.userId,username:data.userName,email:data.email,role:data.role,token:data.token}
 
         }),
           catchError(error => {

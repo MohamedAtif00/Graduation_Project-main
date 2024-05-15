@@ -3,6 +3,5 @@ export interface UserModel{
     username:string,
     email:string,
     role:string,
-    token:string,
-    tourismType:number
+    token:string
 }
