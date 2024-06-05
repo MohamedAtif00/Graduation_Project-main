@@ -12,7 +12,7 @@
               <th scope="col">Coart Name</th>
               <th scope="col">Day</th>
               <th scope="col">Time</th>
-
+              <th scope="col">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -25,6 +25,9 @@
                 {{item.day}}
               </td>
               <td>{{item.time}}</td>
+              <td>
+                <button class="btn btn-danger" (click)="Delete(item)">Delete</button> 
+              </td>
             </tr>
                   
           </tbody>

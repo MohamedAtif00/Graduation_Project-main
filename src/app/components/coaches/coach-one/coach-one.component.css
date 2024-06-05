@@ -451,3 +451,46 @@ body{
     display:inline-block;
   }
 }
+
+
+.username {
+	color: #333;
+	font-weight: bold;
+  }
+  
+  .star-rating {
+	display: inline-flex;
+	position: relative;
+  }
+  
+  .star-rating input[type="radio"] {
+	display: none;
+  }
+  
+  .star-rating i {
+	font-style: normal;
+	color: #ccc; /* Default star color */
+	font-size: 24px; /* Adjust star size */
+	cursor: pointer;
+	margin-right: 5px; /* Space between stars */
+  }
+  
+  .star-rating i.active-star {
+	color: gold; /* Color for active stars */
+	opacity: 1;
+  }
+  
+  .star-rating i:hover,
+  .star-rating i:hover ~ i {
+	color: gold; /* Hover effect for stars */
+  }
+  
+
+  .toast-success {
+	background-color: #28a745 !important;
+  }
+  
+  .toast-error {
+	background-color: #dc3545 !important;
+  }
+  

@@ -20,7 +20,7 @@ export class TrainerService{
 
     AddTrainer()
     {
-        return this.http.post<GeneralResponse<boolean>>(this.addTrainerAndCourt,{userId:this.authServ.user?.id,trainerId:this.trainerId});
+        return this.http.post<GeneralResponse<boolean>>(this.addTrainerAndCourt,{userId:this.authServ.user?.id,trainerId:this.trainerId,TennisCourt:this.court});
     }
 
     GetSingleTrainer(id:string)

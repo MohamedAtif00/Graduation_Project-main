@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TournamentService } from '../service/tournament.service';
-import { Tournament } from '../model/tournament.model';
+import { GetTournament, Tournament } from '../model/tournament.model';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-tournament-section',
@@ -9,9 +10,9 @@ import { Tournament } from '../model/tournament.model';
 })
 export class TournamentSectionComponent implements OnInit{
 
-  tournaments!:Tournament[];
+  tournaments!:GetTournament[];
 
-  constructor(private tournamentServ:TournamentService){}
+  constructor(private tournamentServ:TournamentService,private toastr:ToastrService){}
 
 
   ngOnInit(): void {
@@ -27,6 +28,18 @@ export class TournamentSectionComponent implements OnInit{
     })
   }
 
-
+  Delete(item:GetTournament)
+  {
+    this.tournamentServ.Delete(item).subscribe(data=>{
+      if(data)
+        {
+          this.toastr.success('tournament deleted','success');
+          this.tournamentServ.GetAllTournament().subscribe(data=>{
+            if(data.value)
+            this.tournaments = data.value
+          })
+        }
+    })
+  }
 
 }

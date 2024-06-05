@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/authentication/service/auth.service';
 import { SignUpService } from 'src/app/services/sign-up.service';
 import { TrainerService } from 'src/app/services/trainer.service';
@@ -48,7 +49,12 @@ export class CoachOneComponent implements OnInit {
   };
 
 
-  constructor(private registerServ:SignUpService,private route:ActivatedRoute,public authServ:AuthService,private trainerServ:TrainerService,private router:Router) { }
+  constructor(private registerServ:SignUpService,
+              private route:ActivatedRoute,
+              public authServ:AuthService,
+              private trainerServ:TrainerService,
+              private router:Router,
+              private toastr:ToastrService) { }
 
   ngOnInit(): void {
     let id =this.route.snapshot.params['id'];
@@ -88,13 +94,23 @@ export class CoachOneComponent implements OnInit {
     return age;
   }
 
-  Rating(rating:string)
-  {
-    this.registerServ.AddRating({trainerId:this.coach.trainerId,rating:rating,username:this.authServ.user?.username??''}).subscribe(data=>{
-      console.log(data);
-      if(data.errors.length == 0) alert('Rating Added')
-      
-    })
+  Rating(rating: string) {
+    this.registerServ.AddRating({
+      trainerId: this.coach.trainerId,
+      rating: rating,
+      username: this.authServ.user?.username ?? ''
+    }).subscribe({
+      next: data => {
+        console.log(data);
+        if (data.errors.length === 0) {
+          this.toastr.success('Rating Added');
+        }
+      },
+      error: err => {
+        console.error(err);
+        this.toastr.error('An error occurred while adding the rating');
+      }
+    });
   }
 
   getBase64Image(image:File) {
